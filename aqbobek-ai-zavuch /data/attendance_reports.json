@@ -1,0 +1,46 @@
+[
+  {
+    "class": "7A",
+    "present": 20,
+    "absent": 2,
+    "message_text": "7A - 20, отсутствуют 2",
+    "updated_at": "2026-04-18 15:25"
+  },
+  {
+    "class": "7C",
+    "present": 20,
+    "absent": 3,
+    "message_text": "7C 20, отсутствуют 3"
+  },
+  {
+    "class": "8B",
+    "present": 18,
+    "absent": 0,
+    "message_text": "8B 18 присутствуют"
+  },
+  {
+    "class": "9A",
+    "present": 19,
+    "absent": 3,
+    "message_text": "9A-19 детей, 3 болеют"
+  },
+  {
+    "class": "10A",
+    "present": 20,
+    "absent": 6,
+    "message_text": "10A - 20 присутствует, 6 болеют"
+  },
+  {
+    "class": "10B",
+    "present": 19,
+    "absent": 11,
+    "message_text": "10B 19 учеников 11 отсутствуют"
+  },
+  {
+    "class": "7B",
+    "present": 20,
+    "absent": 0,
+    "message_text": "7B - 20, отсутствуют 0",
+    "updated_at": "2026-04-18 15:39"
+  }
+]

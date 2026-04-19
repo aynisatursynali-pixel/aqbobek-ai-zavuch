@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Module - Aqbobek AI Operations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="premium-ui.css">
+    <link rel="stylesheet" href="schedule-module-styles.css">
+</head>
+<body>
+    <div class="schedule-container">
+        <!-- Premium Header -->
+        <header class="schedule-header">
+            <div class="header-brand">
+                <div class="brand-glass">
+                    <h1 class="brand-title">Schedule Module</h1>
+                    <span class="brand-subtitle">Advanced School Operations Scheduling</span>
+                </div>
+            </div>
+            
+            <div class="header-filters">
+                <div class="filter-group">
+                    <label class="filter-label">View Type</label>
+                    <select class="filter-select premium" id="viewType">
+                        <option value="class">By Class</option>
+                        <option value="teacher">By Teacher</option>
+                        <option value="room">By Room</option>
+                        <option value="day">By Day</option>
+                        <option value="employee">By Employee Type</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label">Day</label>
+                    <select class="filter-select premium" id="dayFilter">
+                        <option value="all">All Days</option>
+                        <option value="monday">Monday</option>
+                        <option value="tuesday">Tuesday</option>
+                        <option value="wednesday">Wednesday</option>
+                        <option value="thursday">Thursday</option>
+                        <option value="friday">Friday</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label">Entity</label>
+                    <input type="text" class="filter-input premium" id="entityFilter" placeholder="Class, Teacher, or Room...">
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label">Show Conflicts</label>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="conflictToggle" checked>
+                        <span class="toggle-slider"></span>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label">Heatmap</label>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="heatmapToggle">
+                        <span class="toggle-slider"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <button class="action-button primary" id="refreshSchedule">
+                    <span class="button-icon">refresh</span>
+                    Refresh
+                </button>
+                <button class="action-button secondary" id="exportSchedule">
+                    <span class="button-icon">download</span>
+                    Export
+                </button>
+                <button class="action-button accent" id="createSchedule">
+                    <span class="button-icon">add</span>
+                    Create
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Schedule Content -->
+        <main class="schedule-main">
+            <!-- Schedule Overview Stats -->
+            <section class="schedule-overview">
+                <div class="overview-grid">
+                    <div class="stat-card occupied">
+                        <div class="stat-icon">room</div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="occupiedRooms">--</div>
+                            <div class="stat-label">Occupied Rooms</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card free">
+                        <div class="stat-icon">free</div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="freeRooms">--</div>
+                            <div class="stat-label">Free Rooms</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card conflicts">
+                        <div class="stat-icon">conflict</div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="conflictCount">--</div>
+                            <div class="stat-label">Conflicts</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card workload">
+                        <div class="stat-icon">workload</div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="avgWorkload">--</div>
+                            <div class="stat-label">Avg Workload</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Schedule Grid -->
+            <section class="schedule-grid-section">
+                <div class="schedule-grid-header">
+                    <h2 class="grid-title">Schedule Overview</h2>
+                    <div class="grid-controls">
+                        <button class="grid-view-btn active" data-view="grid">
+                            <span class="view-icon">grid</span>
+                            Grid
+                        </button>
+                        <button class="grid-view-btn" data-view="list">
+                            <span class="view-icon">list</span>
+                            List
+                        </button>
+                        <button class="grid-view-btn" data-view="timeline">
+                            <span class="view-icon">timeline</span>
+                            Timeline
+                        </button>
+                    </div>
+                </div>
+
+                <div class="schedule-grid-container" id="scheduleGrid">
+                    <!-- Schedule grid will be populated here -->
+                </div>
+            </section>
+
+            <!-- Detailed Schedule View -->
+            <section class="schedule-details">
+                <div class="details-header">
+                    <h2 class="details-title">Detailed Schedule</h2>
+                    <div class="details-controls">
+                        <select class="detail-select" id="detailTimeSlot">
+                            <option value="all">All Time Slots</option>
+                            <option value="1">Lesson 1 (8:00-8:45)</option>
+                            <option value="2">Lesson 2 (8:55-9:40)</option>
+                            <option value="3">Lesson 3 (9:50-10:35)</option>
+                            <option value="4">Lesson 4 (10:55-11:40)</option>
+                            <option value="5">Lesson 5 (11:50-12:35)</option>
+                            <option value="6">Lesson 6 (12:45-13:30)</option>
+                            <option value="7">Lesson 7 (13:40-14:25)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="schedule-details-container" id="scheduleDetails">
+                    <!-- Detailed schedule will be populated here -->
+                </div>
+            </section>
+
+            <!-- Conflict Analysis -->
+            <section class="conflict-analysis">
+                <div class="conflict-header">
+                    <h2 class="conflict-title">Conflict Analysis</h2>
+                    <div class="conflict-summary">
+                        <span class="conflict-count" id="totalConflicts">0</span>
+                        <span class="conflict-label">conflicts detected</span>
+                    </div>
+                </div>
+
+                <div class="conflict-grid" id="conflictGrid">
+                    <!-- Conflicts will be populated here -->
+                </div>
+            </section>
+
+            <!-- Free Staff Finder -->
+            <section class="free-staff-finder">
+                <div class="finder-header">
+                    <h2 class="finder-title">Who is Free Now?</h2>
+                    <div class="finder-controls">
+                        <select class="finder-select" id="freeTimeSlot">
+                            <option value="current">Current Time</option>
+                            <option value="1">Lesson 1</option>
+                            <option value="2">Lesson 2</option>
+                            <option value="3">Lesson 3</option>
+                            <option value="4">Lesson 4</option>
+                            <option value="5">Lesson 5</option>
+                            <option value="6">Lesson 6</option>
+                            <option value="7">Lesson 7</option>
+                        </select>
+                        <select class="finder-select" id="freeDay">
+                            <option value="today">Today</option>
+                            <option value="monday">Monday</option>
+                            <option value="tuesday">Tuesday</option>
+                            <option value="wednesday">Wednesday</option>
+                            <option value="thursday">Thursday</option>
+                            <option value="friday">Friday</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="free-staff-grid" id="freeStaffGrid">
+                    <!-- Free staff will be populated here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <span class="loading-text">Loading Schedule...</span>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="notification-toast" id="notificationToast">
+        <div class="toast-content">
+            <span class="toast-message" id="toastMessage"></span>
+            <button class="toast-close" id="toastClose">×</button>
+        </div>
+    </div>
+
+    <!-- Schedule Modal -->
+    <div class="modal-overlay" id="scheduleModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Create Schedule Entry</h3>
+                <button class="modal-close" id="modalClose">×</button>
+            </div>
+            <div class="modal-body">
+                <form class="schedule-form" id="scheduleForm">
+                    <div class="form-group">
+                        <label class="form-label">Entity Type</label>
+                        <select class="form-select" id="entityType" required>
+                            <option value="">Select Type</option>
+                            <option value="class">Class</option>
+                            <option value="teacher">Teacher</option>
+                            <option value="room">Room</option>
+                            <option value="staff">Staff</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Entity</label>
+                        <input type="text" class="form-input" id="entityName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Day</label>
+                        <select class="form-select" id="scheduleDay" required>
+                            <option value="">Select Day</option>
+                            <option value="monday">Monday</option>
+                            <option value="tuesday">Tuesday</option>
+                            <option value="wednesday">Wednesday</option>
+                            <option value="thursday">Thursday</option>
+                            <option value="friday">Friday</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Lesson</label>
+                        <select class="form-select" id="scheduleLesson" required>
+                            <option value="">Select Lesson</option>
+                            <option value="1">Lesson 1</option>
+                            <option value="2">Lesson 2</option>
+                            <option value="3">Lesson 3</option>
+                            <option value="4">Lesson 4</option>
+                            <option value="5">Lesson 5</option>
+                            <option value="6">Lesson 6</option>
+                            <option value="7">Lesson 7</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Subject</label>
+                        <input type="text" class="form-input" id="scheduleSubject">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Room</label>
+                        <input type="text" class="form-input" id="scheduleRoom">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Notes</label>
+                        <textarea class="form-textarea" id="scheduleNotes"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn secondary" id="modalCancel">Cancel</button>
+                <button class="modal-btn primary" id="modalSave">Save Schedule</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="schedule-module.js"></script>
+</body>
+</html>

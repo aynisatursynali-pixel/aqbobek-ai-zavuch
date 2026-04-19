@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aqbobek AI Zavuch - Executive Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/premium-ui.css" />
+</head>
+<body>
+    <div class="glass-container">
+        <div class="executive-dashboard">
+            <!-- Sidebar Navigation -->
+            <nav class="sidebar-nav">
+                <div class="nav-item active" data-section="overview">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-label">Общий обзор</span>
+                </div>
+                <div class="nav-item" data-section="incidents">
+                    <span class="nav-icon">🚨</span>
+                    <span class="nav-label">Инциденты</span>
+                </div>
+                <div class="nav-item" data-section="tasks">
+                    <span class="nav-icon">📋</span>
+                    <span class="nav-label">Задачи</span>
+                </div>
+                <div class="nav-item" data-section="voice">
+                    <span class="nav-icon">🎤</span>
+                    <span class="nav-label">Голосовые команды</span>
+                </div>
+                <div class="nav-item" data-section="schedule">
+                    <span class="nav-icon">📅</span>
+                    <span class="nav-label">Расписание</span>
+                </div>
+                <div class="nav-item" data-section="staff">
+                    <span class="nav-icon">👥</span>
+                    <span class="nav-label">Персонал</span>
+                </div>
+                <div class="nav-item" data-section="analytics">
+                    <span class="nav-icon">📈</span>
+                    <span class="nav-label">Аналитика</span>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <div class="main-content">
+                <!-- Executive Header -->
+                <header class="executive-header">
+                    <h1 class="header-title">Панель директора Aqbobek</h1>
+                    <div class="header-controls">
+                        <button class="control-btn" onclick="refreshDashboard()">
+                            <span>🔄</span>
+                            <span>Обновить</span>
+                        </button>
+                        <button class="control-btn" onclick="openSettings()">
+                            <span>⚙️</span>
+                            <span>Настройки</span>
+                        </button>
+                    </div>
+                </header>
+
+                <!-- KPI Cards Grid -->
+                <section class="kpi-grid" id="kpiGrid">
+                    <!-- Active Incidents Card -->
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Активные инциденты</span>
+                            <span class="kpi-icon">🚨</span>
+                        </div>
+                        <div class="kpi-value" id="activeIncidentsCount">0</div>
+                        <div class="kpi-change" id="incidentsChange">
+                            <span class="kpi-label">за сегодня</span>
+                            <span class="kpi-change positive">+0</span>
+                        </div>
+                        <div class="kpi-label">Требуют внимания</div>
+                    </div>
+
+                    <!-- Urgent Tasks Card -->
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Срочные задачи</span>
+                            <span class="kpi-icon">🔥</span>
+                        </div>
+                        <div class="kpi-value" id="urgentTasksCount">0</div>
+                        <div class="kpi-change" id="tasksChange">
+                            <span class="kpi-label">за сегодня</span>
+                            <span class="kpi-change negative">+0</span>
+                        </div>
+                        <div class="kpi-label">Требуют решения</div>
+                    </div>
+
+                    <!-- Attendance Summary Card -->
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Отчеты посещаемости</span>
+                            <span class="kpi-icon">📊</span>
+                        </div>
+                        <div class="kpi-value" id="attendanceReportsCount">0</div>
+                        <div class="kpi-change" id="attendanceChange">
+                            <span class="kpi-label">за сегодня</span>
+                            <span class="kpi-change positive">+0</span>
+                        </div>
+                        <div class="kpi-label">Пропущено отчетов</div>
+                    </div>
+
+                    <!-- Substitution Alerts Card -->
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Замены</span>
+                            <span class="kpi-icon">🔄</span>
+                        </div>
+                        <div class="kpi-value" id="substitutionsCount">0</div>
+                        <div class="kpi-change" id="substitutionsChange">
+                            <span class="kpi-label">за сегодня</span>
+                            <span class="kpi-change warning">+0</span>
+                        </div>
+                        <div class="kpi-label">Требуют утверждения</div>
+                    </div>
+
+                    <!-- Monthly Events Card -->
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Мероприятия месяца</span>
+                            <span class="kpi-icon">📅</span>
+                        </div>
+                        <div class="kpi-value" id="monthlyEventsCount">0</div>
+                        <div class="kpi-change" id="eventsChange">
+                            <span class="kpi-label">за месяц</span>
+                            <span class="kpi-change positive">+0</span>
+                        </div>
+                        <div class="kpi-label">Предстоящие</div>
+                    </div>
+
+                    <!-- School Status Card -->
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Статус школы</span>
+                            <span class="kpi-icon">🏫</span>
+                        </div>
+                        <div class="kpi-value" id="schoolStatus">Нормально</div>
+                        <div class="kpi-change">
+                            <span class="kpi-label">обновлено</span>
+                            <span class="kpi-change positive">✓</span>
+                        </div>
+                        <div class="kpi-label">Общая ситуация</div>
+                    </div>
+                </section>
+
+                <!-- Quick Actions -->
+                <section class="quick-actions">
+                    <h3 class="actions-header">Быстрые действия</h3>
+                    <div class="actions-grid">
+                        <div class="action-card" onclick="createVoiceTask()">
+                            <span class="action-icon">🎤</span>
+                            <span class="action-title">Создать голосовую задачу</span>
+                            <span class="action-description">Диктуйте команду для создания задач</span>
+                        </div>
+                        <div class="action-card" onclick="createIncident()">
+                            <span class="action-icon">🚨</span>
+                            <span class="action-title">Создать инцидент</span>
+                            <span class="action-description">Зарегистрировать новый инцидент</span>
+                        </div>
+                        <div class="action-card" onclick="viewAllIncidents()">
+                            <span class="action-icon">📋</span>
+                            <span class="action-title">Все инциденты</span>
+                            <span class="action-description">Просмотр и управление инцидентами</span>
+                        </div>
+                        <div class="action-card" onclick="viewAllTasks()">
+                            <span class="action-icon">📝</span>
+                            <span class="action-title">Все задачи</span>
+                            <span class="action-description">Просмотр и управление задачами</span>
+                        </div>
+                        <div class="action-card" onclick="generateReport()">
+                            <span class="action-icon">📊</span>
+                            <span class="action-title">Создать отчет</span>
+                            <span class="action-description">Генерация отчета для вышестоящих</span>
+                        </div>
+                        <div class="action-card" onclick="openSchedule()">
+                            <span class="action-icon">📅</span>
+                            <span class="action-title">Расписание</span>
+                            <span class="action-description">Управление расписанием школы</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Status Overview -->
+                <section class="status-overview" id="statusOverview">
+                    <h3 class="status-header">Статус систем</h3>
+                    <div class="status-grid" id="statusGrid">
+                        <!-- Status items will be populated by JavaScript -->
+                    </div>
+                </section>
+
+                <!-- Voice Command Interface -->
+                <section class="voice-interface" id="voiceInterface">
+                    <div class="voice-header">
+                        <span class="voice-title">🎤 Голосовые команды</span>
+                        <div class="voice-status">
+                            <span class="voice-status-dot" id="voiceStatusDot"></span>
+                            <span class="voice-status-text" id="voiceStatusText">Готов к записи</span>
+                        </div>
+                    </div>
+                    <div class="voice-controls">
+                        <button class="voice-btn" id="voiceRecordBtn">
+                            <span class="voice-icon">🎤</span>
+                            <span class="voice-text">Начать запись</span>
+                        </button>
+                        <button class="voice-btn secondary" id="voiceClearBtn">
+                            <span class="voice-icon">🗑️</span>
+                            <span class="voice-text">Очистить</span>
+                        </button>
+                        <button class="voice-btn" id="voiceProcessBtn" disabled>
+                            <span class="voice-icon">⚡</span>
+                            <span class="voice-text">Обработать</span>
+                        </button>
+                    </div>
+                    <div class="voice-transcript">
+                        <textarea id="voiceTranscript" placeholder="Говорите или введите команду здесь..." rows="3"></textarea>
+                        <div class="voice-confidence">
+                            Уверенность: <span id="voiceConfidence">0</span>%
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="/executive-dashboard.js"></script>
+</body>
+</html>

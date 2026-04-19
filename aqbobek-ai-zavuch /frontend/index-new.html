@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aqbobek AI Operations - School Management System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="modern-ui.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Modern Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <div class="logo">
+                        <div class="logo-icon">A</div>
+                    </div>
+                    <div class="logo-text">
+                        <h1 class="logo-title">Aqbobek</h1>
+                        <span class="logo-subtitle">AI Operations</span>
+                    </div>
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <span class="toggle-icon"></span>
+                </button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Main</div>
+                    <ul class="nav-list">
+                        <li class="nav-item active" data-page="dashboard">
+                            <a href="#" class="nav-link">
+                                <span class="nav-icon">dashboard</span>
+                                <span class="nav-text">Центр управления</span>
+                            </a>
+                        </li>
+                        <li class="nav-item" data-page="monitoring">
+                            <a href="#" class="nav-link">
+                                <span class="nav-icon">monitoring</span>
+                                <span class="nav-text">Мониторинг</span>
+                            </a>
+                        </li>
+                        <li class="nav-item" data-page="tasks">
+                            <a href="#" class="nav-link">
+                                <span class="nav-icon">tasks</span>
+                                <span class="nav-text">Задачи</span>
+                            </a>
+                        </li>
+                        <li class="nav-item" data-page="incidents">
+                            <a href="#" class="nav-link">
+                                <span class="nav-icon">incidents</span>
+                                <span class="nav-text">Инциденты</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Operations</div>
+                    <ul class="nav-list">
+                        <li class="nav-item" data-page="dining">
+                            <a href="#" class="nav-link">
+                                <span class="nav-icon">dining</span>
+                                <span class="nav-text">Столовая</span>
+                            </a>
+                        </li>
+                        <li class="nav-item" data-page="schedule">
+                            <a href="#" class="nav-link">
+                                <span class="nav-icon">schedule</span>
+                                <span class="nav-text">Расписание</span>
+                            </a>
+                        </li>
+                        <li class="nav-item" data-page="staff">
+                            <a href="#" class="nav-link">
+                                <span class="nav-icon">staff</span>
+                                <span class="nav-text">Коллектив</span>
+                            </a>
+                        </li>
+                        <li class="nav-item" data-page="calendar">
+                            <a href="#" class="nav-link">
+                                <span class="nav-icon">calendar</span>
+                                <span class="nav-text">Общий график</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Tools</div>
+                    <ul class="nav-list">
+                        <li class="nav-item" data-page="knowledge">
+                            <a href="#" class="nav-link">
+                                <span class="nav-icon">knowledge</span>
+                                <span class="nav-text">База знаний</span>
+                            </a>
+                        </li>
+                        <li class="nav-item" data-page="voice">
+                            <a href="#" class="nav-link">
+                                <span class="nav-icon">voice</span>
+                                <span class="nav-text">Voice Commands</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <span class="avatar-text">D</span>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name">Director</div>
+                        <div class="user-role">Administrator</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                        <span class="menu-icon"></span>
+                    </button>
+                    <div class="breadcrumb">
+                        <span class="breadcrumb-item">Home</span>
+                        <span class="breadcrumb-separator">/</span>
+                        <span class="breadcrumb-item active">Dashboard</span>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <div class="header-actions">
+                        <button class="header-btn" id="notificationBtn">
+                            <span class="btn-icon">notifications</span>
+                            <span class="btn-badge">3</span>
+                        </button>
+                        <button class="header-btn" id="searchBtn">
+                            <span class="btn-icon">search</span>
+                        </button>
+                        <button class="header-btn" id="settingsBtn">
+                            <span class="btn-icon">settings</span>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content" id="pageContent">
+                <!-- Dashboard Page -->
+                <div class="page" id="dashboardPage">
+                    <div class="page-header">
+                        <div class="page-title-section">
+                            <h1 class="page-title">Центр управления</h1>
+                            <p class="page-subtitle">Обзор ключевых показателей и активных операций</p>
+                        </div>
+                        <div class="page-actions">
+                            <button class="btn btn-primary" id="refreshDashboard">
+                                <span class="btn-icon">refresh</span>
+                                Обновить
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Stats Overview -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <div class="stat-icon primary">
+                                    <span class="icon-text">👥</span>
+                                </div>
+                                <div class="stat-trend positive">
+                                    <span class="trend-icon">↑</span>
+                                    <span class="trend-value">12%</span>
+                                </div>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value">1,247</div>
+                                <div class="stat-label">Всего учеников</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <div class="stat-icon success">
+                                    <span class="icon-text">👨‍🏫</span>
+                                </div>
+                                <div class="stat-trend neutral">
+                                    <span class="trend-icon">→</span>
+                                    <span class="trend-value">0%</span>
+                                </div>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value">89</div>
+                                <div class="stat-label">Персонал</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <div class="stat-icon warning">
+                                    <span class="icon-text">⚠️</span>
+                                </div>
+                                <div class="stat-trend negative">
+                                    <span class="trend-icon">↑</span>
+                                    <span class="trend-value">2</span>
+                                </div>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value">5</div>
+                                <div class="stat-label">Активные инциденты</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <div class="stat-icon info">
+                                    <span class="icon-text">📋</span>
+                                </div>
+                                <div class="stat-trend positive">
+                                    <span class="trend-icon">↑</span>
+                                    <span class="trend-value">8</span>
+                                </div>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value">23</div>
+                                <div class="stat-label">Задачи в работе</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main Dashboard Grid -->
+                    <div class="dashboard-grid">
+                        <!-- Quick Actions -->
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3 class="card-title">Быстрые действия</h3>
+                                <button class="card-action">
+                                    <span class="action-icon">more</span>
+                                </button>
+                            </div>
+                            <div class="card-content">
+                                <div class="quick-actions">
+                                    <button class="quick-action-btn" data-action="voice">
+                                        <span class="action-icon">🎤</span>
+                                        <span class="action-text">Голосовая команда</span>
+                                    </button>
+                                    <button class="quick-action-btn" data-action="incident">
+                                        <span class="action-icon">🚨</span>
+                                        <span class="action-text">Сообщить об инциденте</span>
+                                    </button>
+                                    <button class="quick-action-btn" data-action="task">
+                                        <span class="action-icon">➕</span>
+                                        <span class="action-text">Создать задачу</span>
+                                    </button>
+                                    <button class="quick-action-btn" data-action="substitution">
+                                        <span class="action-icon">🔄</span>
+                                        <span class="action-text">Запрос замены</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Active Incidents -->
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3 class="card-title">Активные инциденты</h3>
+                                <span class="card-badge danger">5</span>
+                            </div>
+                            <div class="card-content">
+                                <div class="incident-list">
+                                    <div class="incident-item high">
+                                        <div class="incident-icon">🔴</div>
+                                        <div class="incident-content">
+                                            <div class="incident-title">Поломка оборудования в кабинете 12</div>
+                                            <div class="incident-time">5 минут назад</div>
+                                        </div>
+                                        <div class="incident-action">
+                                            <button class="btn-small">View</button>
+                                        </div>
+                                    </div>
+                                    <div class="incident-item medium">
+                                        <div class="incident-icon">🟡</div>
+                                        <div class="incident-content">
+                                            <div class="incident-title">Медицинский случай в спортзале</div>
+                                            <div class="incident-time">15 минут назад</div>
+                                        </div>
+                                        <div class="incident-action">
+                                            <button class="btn-small">View</button>
+                                        </div>
+                                    </div>
+                                    <div class="incident-item low">
+                                        <div class="incident-icon">🟢</div>
+                                        <div class="incident-content">
+                                            <div class="incident-title">Запрос на чистку коридора</div>
+                                            <div class="incident-time">30 минут назад</div>
+                                        </div>
+                                        <div class="incident-action">
+                                            <button class="btn-small">View</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Tasks -->
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3 class="card-title">Последние задачи</h3>
+                                <span class="card-badge info">23</span>
+                            </div>
+                            <div class="card-content">
+                                <div class="task-list">
+                                    <div class="task-item">
+                                        <div class="task-checkbox">
+                                            <input type="checkbox" id="task1">
+                                            <label for="task1"></label>
+                                        </div>
+                                        <div class="task-content">
+                                            <div class="task-title">Подготовить актовый зал к хакатону</div>
+                                            <div class="task-meta">
+                                                <span class="task-assignee">Айгерим</span>
+                                                <span class="task-deadline">Сегодня</span>
+                                            </div>
+                                        </div>
+                                        <div class="task-priority high">High</div>
+                                    </div>
+                                    <div class="task-item">
+                                        <div class="task-checkbox">
+                                            <input type="checkbox" id="task2">
+                                            <label for="task2"></label>
+                                        </div>
+                                        <div class="task-content">
+                                            <div class="task-title">Заказать воду и бейджи</div>
+                                            <div class="task-meta">
+                                                <span class="task-assignee">Назкен</span>
+                                                <span class="task-deadline">Завтра</span>
+                                            </div>
+                                        </div>
+                                        <div class="task-priority normal">Normal</div>
+                                    </div>
+                                    <div class="task-item">
+                                        <div class="task-checkbox">
+                                            <input type="checkbox" id="task3" checked>
+                                            <label for="task3"></label>
+                                        </div>
+                                        <div class="task-content">
+                                            <div class="task-title">Проверить расписание на следующую неделю</div>
+                                            <div class="task-meta">
+                                                <span class="task-assignee">Петр</span>
+                                                <span class="task-deadline">Завершено</span>
+                                            </div>
+                                        </div>
+                                        <div class="task-priority low">Low</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Schedule Overview -->
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3 class="card-title">Расписание сегодня</h3>
+                                <button class="card-action">
+                                    <span class="action-icon">calendar</span>
+                                </button>
+                            </div>
+                            <div class="card-content">
+                                <div class="schedule-timeline">
+                                    <div class="timeline-item current">
+                                        <div class="timeline-time">09:00</div>
+                                        <div class="timeline-content">
+                                            <div class="timeline-subject">Математика</div>
+                                            <div class="timeline-details">7А класс, Кабинет 12</div>
+                                        </div>
+                                        <div class="timeline-status active">Сейчас</div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-time">10:00</div>
+                                        <div class="timeline-content">
+                                            <div class="timeline-subject">Физика</div>
+                                            <div class="timeline-details">8Б класс, Кабинет 5</div>
+                                        </div>
+                                        <div class="timeline-status upcoming">Следующий</div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-time">11:00</div>
+                                        <div class="timeline-content">
+                                            <div class="timeline-subject">Химия</div>
+                                            <div class="timeline-details">9В класс, Лаборатория</div>
+                                        </div>
+                                        <div class="timeline-status">Планируется</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Staff Status -->
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3 class="card-title">Статус персонала</h3>
+                                <span class="card-badge success">78</span>
+                            </div>
+                            <div class="card-content">
+                                <div class="staff-status-grid">
+                                    <div class="staff-status-item">
+                                        <div class="status-indicator online"></div>
+                                        <div class="status-info">
+                                            <div class="status-count">45</div>
+                                            <div class="status-label">На месте</div>
+                                        </div>
+                                    </div>
+                                    <div class="staff-status-item">
+                                        <div class="status-indicator busy"></div>
+                                        <div class="status-info">
+                                            <div class="status-count">23</div>
+                                            <div class="status-label">Занят</div>
+                                        </div>
+                                    </div>
+                                    <div class="staff-status-item">
+                                        <div class="status-indicator away"></div>
+                                        <div class="status-info">
+                                            <div class="status-count">10</div>
+                                            <div class="status-label">Отсутствует</div>
+                                        </div>
+                                    </div>
+                                    <div class="staff-status-item">
+                                        <div class="status-indicator substitution"></div>
+                                        <div class="status-info">
+                                            <div class="status-count">3</div>
+                                            <div class="status-label">На замене</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AI Assistant -->
+                        <div class="dashboard-card ai-assistant">
+                            <div class="card-header">
+                                <h3 class="card-title">AI Ассистент</h3>
+                                <div class="ai-status online">
+                                    <span class="status-dot"></span>
+                                    <span class="status-text">Online</span>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <div class="ai-chat">
+                                    <div class="chat-messages">
+                                        <div class="message ai">
+                                            <div class="message-avatar">AI</div>
+                                            <div class="message-content">
+                                                <div class="message-text">Доброе утро! У вас 5 активных инцидентов и 23 задачи в работе. Нужна помощь с чем-то конкретным?</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="chat-input">
+                                        <input type="text" placeholder="Спросите AI ассистента..." class="ai-input">
+                                        <button class="send-btn">
+                                            <span class="send-icon">send</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other Pages (Hidden by default) -->
+                <div class="page hidden" id="monitoringPage">
+                    <div class="page-header">
+                        <h1 class="page-title">Мониторинг</h1>
+                        <p class="page-subtitle">Real-time мониторинг школьных операций</p>
+                    </div>
+                    <div class="monitoring-content">
+                        <div class="placeholder-card">
+                            <h3>Мониторинг</h3>
+                            <p>Страница мониторинга в разработке</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page hidden" id="tasksPage">
+                    <div class="page-header">
+                        <h1 class="page-title">Задачи</h1>
+                        <p class="page-subtitle">Управление задачами и поручениями</p>
+                    </div>
+                    <div class="tasks-content">
+                        <div class="placeholder-card">
+                            <h3>Задачи</h3>
+                            <p>Страница задач в разработке</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page hidden" id="incidentsPage">
+                    <div class="page-header">
+                        <h1 class="page-title">Инциденты</h1>
+                        <p class="page-subtitle">Отслеживание и управление инцидентами</p>
+                    </div>
+                    <div class="incidents-content">
+                        <div class="placeholder-card">
+                            <h3>Инциденты</h3>
+                            <p>Страница инцидентов в разработке</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page hidden" id="diningPage">
+                    <div class="page-header">
+                        <h1 class="page-title">Столовая</h1>
+                        <p class="page-subtitle">Управление питанием и столовой</p>
+                    </div>
+                    <div class="dining-content">
+                        <div class="placeholder-card">
+                            <h3>Столовая</h3>
+                            <p>Страница столовой в разработке</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page hidden" id="schedulePage">
+                    <div class="page-header">
+                        <h1 class="page-title">Расписание</h1>
+                        <p class="page-subtitle">Управление расписанием занятий</p>
+                    </div>
+                    <div class="schedule-content">
+                        <div class="placeholder-card">
+                            <h3>Расписание</h3>
+                            <p>Страница расписания в разработке</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page hidden" id="staffPage">
+                    <div class="page-header">
+                        <h1 class="page-title">Коллектив</h1>
+                        <p class="page-subtitle">Управление персоналом и кадрами</p>
+                    </div>
+                    <div class="staff-content">
+                        <div class="placeholder-card">
+                            <h3>Коллектив</h3>
+                            <p>Страница коллектива в разработке</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page hidden" id="calendarPage">
+                    <div class="page-header">
+                        <h1 class="page-title">Общий график</h1>
+                        <p class="page-subtitle">Календарь событий и мероприятий</p>
+                    </div>
+                    <div class="calendar-content">
+                        <div class="placeholder-card">
+                            <h3>Календарь</h3>
+                            <p>Страница календаря в разработке</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page hidden" id="knowledgePage">
+                    <div class="page-header">
+                        <h1 class="page-title">База знаний</h1>
+                        <p class="page-subtitle">Информационная база и документы</p>
+                    </div>
+                    <div class="knowledge-content">
+                        <div class="placeholder-card">
+                            <h3>База знаний</h3>
+                            <p>Страница базы знаний в разработке</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page hidden" id="voicePage">
+                    <div class="page-header">
+                        <h1 class="page-title">Voice Commands</h1>
+                        <p class="page-subtitle">Голосовое управление задачами</p>
+                    </div>
+                    <div class="voice-content">
+                        <div class="placeholder-card">
+                            <h3>Voice Commands</h3>
+                            <p>Страница голосовых команд в разработке</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Notification Panel -->
+    <div class="notification-panel" id="notificationPanel">
+        <div class="panel-header">
+            <h3 class="panel-title">Уведомления</h3>
+            <button class="panel-close" id="closeNotifications">×</button>
+        </div>
+        <div class="panel-content">
+            <div class="notification-item unread">
+                <div class="notification-icon warning">⚠️</div>
+                <div class="notification-content">
+                    <div class="notification-title">Новый инцидент</div>
+                    <div class="notification-text">Поломка оборудования в кабинете 12</div>
+                    <div class="notification-time">5 минут назад</div>
+                </div>
+            </div>
+            <div class="notification-item unread">
+                <div class="notification-icon info">📋</div>
+                <div class="notification-content">
+                    <div class="notification-title">Новая задача</div>
+                    <div class="notification-text">Подготовить актовый зал к хакатону</div>
+                    <div class="notification-time">10 минут назад</div>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="notification-icon success">✅</div>
+                <div class="notification-content">
+                    <div class="notification-title">Задача завершена</div>
+                    <div class="notification-text">Проверено расписание на следующую неделю</div>
+                    <div class="notification-time">1 час назад</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-container">
+            <div class="search-input-wrapper">
+                <input type="text" class="search-input" placeholder="Поиск по системе..." id="globalSearch">
+                <button class="search-close" id="closeSearch">×</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <div class="search-category">
+                    <h4 class="category-title">Задачи</h4>
+                    <div class="search-items">
+                        <div class="search-item">Подготовить актовый зал к хакатону</div>
+                        <div class="search-item">Заказать воду и бейджи</div>
+                    </div>
+                </div>
+                <div class="search-category">
+                    <h4 class="category-title">Персонал</h4>
+                    <div class="search-items">
+                        <div class="search-item">Айгерим - Учитель математики</div>
+                        <div class="search-item">Назкен - Администратор</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="modern-ui.js"></script>
+</body>
+</html>

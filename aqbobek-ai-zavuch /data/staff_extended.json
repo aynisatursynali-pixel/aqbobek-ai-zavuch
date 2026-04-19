@@ -1,0 +1,339 @@
+[
+  {
+    "id": "admin_001",
+    "full_name": "Айнур Кенжебаев",
+    "category": "administration",
+    "role": "директор",
+    "specialization": ["управление образованием", "стратегическое планирование"],
+    "qualifications": ["Высшее педагогическое образование", "Магистратура управления"],
+    "experience_years": 15,
+    "phone": "+7 727 123 45 67",
+    "email": "director@aqbobek.edu.kz",
+    "telegram_chat_id": "director_aqbobek",
+    "room_number": "кабинет директора",
+    "is_active": true,
+    "weekly_hours_limit": 40,
+    "workload_hours": {
+      "Дүйсенбі": 8,
+      "Сейсенбі": 8,
+      "Сәрсенбі": 8,
+      "Бейсенбі": 8,
+      "Жұма": 6,
+      "Сенбі": 4
+    },
+    "skills": ["руководство", "планирование", "кадровый менеджмент"],
+    "schedule_preferences": {
+      "preferred_days": ["Дүйсенбі", "Сейсенбі", "Сәрсенбі", "Бейсенбі"],
+      "avoid_lessons": [7],
+      "requires_preparation_time": true
+    }
+  },
+  {
+    "id": "admin_002",
+    "full_name": "Гульнара Султанова",
+    "category": "administration",
+    "role": "заместитель директора по УВР",
+    "specialization": ["учебно-воспитательная работа", "методическая работа"],
+    "qualifications": ["Высшее педагогическое образование", "Кандидат педагогических наук"],
+    "experience_years": 12,
+    "phone": "+7 727 123 45 68",
+    "email": "deputy_uvr@aqbobek.edu.kz",
+    "telegram_chat_id": "deputy_uvr_aqbobek",
+    "room_number": "кабинет зам. директора",
+    "is_active": true,
+    "weekly_hours_limit": 40,
+    "workload_hours": {
+      "Дүйсенбі": 8,
+      "Сейсенбі": 8,
+      "Сәрсенбі": 8,
+      "Бейсенбі": 8,
+      "Жұма": 6,
+      "Сенбі": 4
+    },
+    "skills": ["методика преподавания", "контроль качества", "работа с документацией"],
+    "schedule_preferences": {
+      "preferred_days": ["Дүйсенбі", "Сейсенбі", "Сәрсенбі", "Бейсенбі"],
+      "focus_areas": ["учебный процесс", "методическая работа"]
+    }
+  },
+  {
+    "id": "admin_003",
+    "full_name": "Бауыржан Омаров",
+    "category": "administration",
+    "role": "заместитель директора по ВР",
+    "specialization": ["воспитательная работа", "внеклассная работа"],
+    "qualifications": ["Высшее педагогическое образование"],
+    "experience_years": 10,
+    "phone": "+7 727 123 45 69",
+    "email": "deputy_vr@aqbobek.edu.kz",
+    "telegram_chat_id": "deputy_vr_aqbobek",
+    "room_number": "кабинет зам. директора",
+    "is_active": true,
+    "weekly_hours_limit": 40,
+    "workload_hours": {
+      "Дүйсенбі": 8,
+      "Сейсенбі": 8,
+      "Сәрсенбі": 8,
+      "Бейсенбі": 8,
+      "Жұма": 6,
+      "Сенбі": 4
+    },
+    "skills": ["воспитательная работа", "психология подростков", "организация мероприятий"],
+    "schedule_preferences": {
+      "preferred_days": ["Дүйсенбі", "Сейсенбі", "Сәрсенбі", "Бейсенбі"],
+      "focus_areas": ["воспитательная работа", "внеклассные мероприятия"]
+    }
+  },
+  {
+    "id": "admin_004",
+    "full_name": "Мадина Ерманова",
+    "category": "administration",
+    "role": "заместитель директора по АХЧ",
+    "specialization": ["административно-хозяйственная часть", "материально-техническое обеспечение"],
+    "qualifications": ["Высшее экономическое образование", "Мастер делового администрирования"],
+    "experience_years": 8,
+    "phone": "+7 727 123 45 70",
+    "email": "deputy_akhch@aqbobek.edu.kz",
+    "telegram_chat_id": "deputy_akhch_aqbobek",
+    "room_number": "кабинет АХЧ",
+    "is_active": true,
+    "weekly_hours_limit": 40,
+    "workload_hours": {
+      "Дүйсенбі": 8,
+      "Сейсенбі": 8,
+      "Сәрсенбі": 8,
+      "Бейсенбі": 8,
+      "Жұма": 6,
+      "Сенбі": 4
+    },
+    "skills": ["управление хозяйством", "бюджетирование", "работа с поставщиками"],
+    "schedule_preferences": {
+      "preferred_days": ["Дүйсенбі", "Сейсенбі", "Сәрсенбі", "Бейсенбі"],
+      "focus_areas": ["хозяйственные вопросы", "техническое обслуживание"]
+    }
+  },
+  {
+    "id": "psych_001",
+    "full_name": "Асем Тулегенова",
+    "category": "psychological",
+    "role": "педагог-психолог",
+    "specialization": ["детская психология", "педагогическая диагностика"],
+    "qualifications": ["Высшее психологическое образование", "Магистратура психологии"],
+    "experience_years": 9,
+    "phone": "+7 727 123 45 78",
+    "email": "psychologist@aqbobek.edu.kz",
+    "telegram_chat_id": "psychologist_aqbobek",
+    "room_number": "кабинет психолога",
+    "is_active": true,
+    "weekly_hours_limit": 30,
+    "workload_hours": {
+      "Дүйсенбі": 6,
+      "Сейсенбі": 6,
+      "Сәрсенбі": 6,
+      "Бейсенбі": 6,
+      "Жұма": 6,
+      "Сенбі": 4
+    },
+    "skills": ["психологическая диагностика", "консультирование", "профилактика"],
+    "schedule_preferences": {
+      "preferred_days": ["Дүйсенбі", "Сейсенбі", "Сәрсенбі", "Бейсенбі"],
+      "focus_areas": ["психологическая поддержка", "диагностика"]
+    }
+  },
+  {
+    "id": "psych_002",
+    "full_name": "Меруерт Есенжолов",
+    "category": "psychological",
+    "role": "социальный педагог",
+    "specialization": ["социальная педагогика", "профилактика правонарушений"],
+    "qualifications": ["Высшее педагогическое образование", "Специализация социальная педагогика"],
+    "experience_years": 7,
+    "phone": "+7 727 123 45 79",
+    "email": "social_pedagogue@aqbobek.edu.kz",
+    "telegram_chat_id": "social_aqbobek",
+    "room_number": "кабинет социального педагога",
+    "is_active": true,
+    "weekly_hours_limit": 30,
+    "workload_hours": {
+      "Дүйсенбі": 6,
+      "Сейсенбі": 6,
+      "Сәрсенбі": 6,
+      "Бейсенбі": 6,
+      "Жұма": 6,
+      "Сенбі": 4
+    },
+    "skills": ["социальная работа", "профилактика", "работа с семьями"],
+    "schedule_preferences": {
+      "preferred_days": ["Дүйсенбі", "Сейсенбі", "Сәрсенбі", "Бейсенбі"],
+      "focus_areas": ["социальная работа", "профилактика"]
+    }
+  },
+  {
+    "id": "support_001",
+    "full_name": "Гульмира Абдрахманова",
+    "category": "educational_support",
+    "role": "библиотекарь",
+    "specialization": ["библиотечное дело", "информационные технологии"],
+    "qualifications": ["Высшее библиотечное образование", "Курс библиотечных информационных систем"],
+    "experience_years": 15,
+    "phone": "+7 727 123 45 80",
+    "email": "librarian@aqbobek.edu.kz",
+    "telegram_chat_id": "librarian_aqbobek",
+    "room_number": "библиотека",
+    "is_active": true,
+    "weekly_hours_limit": 30,
+    "workload_hours": {
+      "Дүйсенбі": 6,
+      "Сейсенбі": 6,
+      "Сәрсенбі": 6,
+      "Бейсенбі": 6,
+      "Жұма": 6,
+      "Сенбі": 4
+    },
+    "skills": ["библиотечные системы", "информационный поиск", "работа с читателями"],
+    "schedule_preferences": {
+      "preferred_days": ["Дүйсенбі", "Сейсенбі", "Сәрсенбі", "Бейсенбі"],
+      "focus_areas": ["библиотечное обслуживание", "информационная поддержка"]
+    }
+  },
+  {
+    "id": "support_002",
+    "full_name": "Дамир Нуртаев",
+    "category": "educational_support",
+    "role": "IT-специалист",
+    "specialization": ["IT-инфраструктура", "техническая поддержка"],
+    "qualifications": ["Высшее техническое образование", "Сертификаты Cisco, Microsoft"],
+    "experience_years": 6,
+    "phone": "+7 727 123 45 81",
+    "email": "it_specialist@aqbobek.edu.kz",
+    "telegram_chat_id": "it_aqbobek",
+    "room_number": "IT-кабинет",
+    "is_active": true,
+    "weekly_hours_limit": 40,
+    "workload_hours": {
+      "Дүйсенбі": 8,
+      "Сейсенбі": 8,
+      "Сәрсенбі": 8,
+      "Бейсенбі": 8,
+      "Жұма": 6,
+      "Сенбі": 4
+    },
+    "skills": ["сетевое администрирование", "техническая поддержка", "обслуживание оборудования"],
+    "schedule_preferences": {
+      "preferred_days": ["Дүйсенбі", "Сейсенбі", "Сәрсенбі", "Бейсенбі"],
+      "focus_areas": ["IT-поддержка", "техническое обслуживание"]
+    }
+  },
+  {
+    "id": "service_001",
+    "full_name": "Айгуль Мухамеджанова",
+    "category": "service",
+    "role": "секретарь",
+    "specialization": ["делопроизводство", "коммуникации"],
+    "qualifications": ["Среднее специальное образование", "Курсы делопроизводства"],
+    "experience_years": 10,
+    "phone": "+7 727 123 45 82",
+    "email": "secretary@aqbobek.edu.kz",
+    "telegram_chat_id": "secretary_aqbobek",
+    "room_number": "приемная",
+    "is_active": true,
+    "weekly_hours_limit": 40,
+    "workload_hours": {
+      "Дүйсенбі": 8,
+      "Сейсенбі": 8,
+      "Сәрсенбі": 8,
+      "Бейсенбі": 8,
+      "Жұма": 6,
+      "Сенбі": 4
+    },
+    "skills": ["делопроизводство", "коммуникации", "работа с документами"],
+    "schedule_preferences": {
+      "preferred_days": ["Дүйсенбі", "Сейсенбі", "Сәрсенбі", "Бейсенбі"],
+      "focus_areas": ["делопроизводство", "коммуникации"]
+    }
+  },
+  {
+    "id": "service_002",
+    "full_name": "Карина Смагулова",
+    "category": "service",
+    "role": "бухгалтер",
+    "specialization": ["бухгалтерский учет", "финансовая отчетность"],
+    "qualifications": ["Высшее экономическое образование", "Сертификат профессионального бухгалтера"],
+    "experience_years": 12,
+    "phone": "+7 727 123 45 83",
+    "email": "accountant@aqbobek.edu.kz",
+    "telegram_chat_id": "accountant_aqbobek",
+    "room_number": "бухгалтерия",
+    "is_active": true,
+    "weekly_hours_limit": 40,
+    "workload_hours": {
+      "Дүйсенбі": 8,
+      "Сейсенбі": 8,
+      "Сәрсенбі": 8,
+      "Бейсенбі": 8,
+      "Жұма": 6,
+      "Сенбі": 4
+    },
+    "skills": ["бухгалтерский учет", "финансовый анализ", "отчетность"],
+    "schedule_preferences": {
+      "preferred_days": ["Дүйсенбі", "Сейсенбі", "Сәрсенбі", "Бейсенбі"],
+      "focus_areas": ["финансы", "бухгалтерия"]
+    }
+  },
+  {
+    "id": "technical_001",
+    "full_name": "Нурлан Жакупов",
+    "category": "technical",
+    "role": "уборщик",
+    "specialization": ["уборка помещений", "техническое обслуживание"],
+    "qualifications": ["Среднее образование", "Удостоверение о прохождении инструктажа"],
+    "experience_years": 15,
+    "phone": "+7 727 123 45 85",
+    "email": "janitor@aqbobek.edu.kz",
+    "telegram_chat_id": "janitor_aqbobek",
+    "room_number": "техническое помещение",
+    "is_active": true,
+    "weekly_hours_limit": 40,
+    "workload_hours": {
+      "Дүйсенбі": 8,
+      "Сейсенбі": 8,
+      "Сәрсенбі": 8,
+      "Бейсенбі": 8,
+      "Жұма": 6,
+      "Сенбі": 4
+    },
+    "skills": ["уборка", "техническое обслуживание", "санитарные нормы"],
+    "schedule_preferences": {
+      "preferred_days": ["Дүйсенбі", "Сейсенбі", "Сәрсенбі", "Бейсенбі"],
+      "focus_areas": ["уборка", "техническое обслуживание"]
+    }
+  },
+  {
+    "id": "security_001",
+    "full_name": "Марат Оспанов",
+    "category": "security",
+    "role": "охранник",
+    "specialization": ["охрана объекта", "пожарная безопасность"],
+    "qualifications": ["Среднее образование", "Сертификат охранника", "Лицензия на оружие"],
+    "experience_years": 10,
+    "phone": "+7 727 123 45 86",
+    "email": "security@aqbobek.edu.kz",
+    "telegram_chat_id": "security_aqbobek",
+    "room_number": "пост охраны",
+    "is_active": true,
+    "weekly_hours_limit": 60,
+    "workload_hours": {
+      "Дүйсенбі": 12,
+      "Сейсенбі": 12,
+      "Сәрсенбі": 12,
+      "Бейсенбі": 12,
+      "Жұма": 12,
+      "Сенбі": 12
+    },
+    "skills": ["охрана", "пожарная безопасность", "первая помощь"],
+    "schedule_preferences": {
+      "preferred_days": ["Дүйсенбі", "Сейсенбі", "Сәрсенбі", "Бейсенбі", "Жұма", "Сенбі"],
+      "focus_areas": ["охрана", "безопасность"]
+    }
+  }
+]

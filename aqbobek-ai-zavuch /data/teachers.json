@@ -1,0 +1,351 @@
+[
+  {
+    "teacher_name": "Нажмадинов Марат",
+    "subjects": [
+      "алгебра",
+      "геометрия",
+      "мат.сау",
+      "қосымша",
+      "ұбт"
+    ],
+    "weekly_load": 76,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Есалина Айзада",
+    "subjects": [
+      "алгебра",
+      "геометрия",
+      "мат.сау",
+      "қосымша",
+      "ұбт"
+    ],
+    "weekly_load": 76,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Даулетбаева Сая",
+    "subjects": [
+      "алгебра",
+      "геометрия",
+      "мат.сау",
+      "қосымша",
+      "ұбт"
+    ],
+    "weekly_load": 80,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Жоламан Мейрамбек",
+    "subjects": [
+      "алгебра",
+      "геометрия",
+      "мат.сау",
+      "қарж сауат",
+      "қосымша",
+      "ұбт"
+    ],
+    "weekly_load": 84,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Арыстанғалиқызы Ақмарал",
+    "subjects": [
+      "алгебра",
+      "геометрия",
+      "қосымша"
+    ],
+    "weekly_load": 84,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Сулейманов Бегдулла",
+    "subjects": [
+      "физика",
+      "қосымша",
+      "ұбт"
+    ],
+    "weekly_load": 96,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Сунгариева Айгерим Бисенбаевна",
+    "subjects": [
+      "физика",
+      "қосымша"
+    ],
+    "weekly_load": 72,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Ахметова Индира",
+    "subjects": [
+      "информатика",
+      "программалау",
+      "ұбт"
+    ],
+    "weekly_load": 100,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Сапар Елжан Шакизадаұлы",
+    "subjects": [
+      "информатика"
+    ],
+    "weekly_load": 12,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Балтабай Жанболат Бекболатұлы",
+    "subjects": [
+      "дүниежүзі тарихы",
+      "қазақстан тарихы",
+      "ұбт дж.тарих",
+      "ұбт қ.тарих"
+    ],
+    "weekly_load": 88,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Қангерей Қанат",
+    "subjects": [
+      "дүниежүзі тарихы",
+      "қазақстан тарихы",
+      "құқық негіздері",
+      "ұбт құқық"
+    ],
+    "weekly_load": 92,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Ақырап Ақерке",
+    "subjects": [
+      "ielts",
+      "ағылшын тілі/ұбт",
+      "олимпиада",
+      "қосымша"
+    ],
+    "weekly_load": 84,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Таңатар Мадина",
+    "subjects": [
+      "ielts",
+      "ағылшын тілі/ұбт",
+      "олимпиада",
+      "қосымша"
+    ],
+    "weekly_load": 76,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Қайыржанова Аружан",
+    "subjects": [
+      "ағылшын тілі",
+      "китайский",
+      "қосымша"
+    ],
+    "weekly_load": 76,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Халелова Анель(куратор)",
+    "subjects": [
+      "ж.құзырет",
+      "қазақ тілі",
+      "қазақ әдебиеті"
+    ],
+    "weekly_load": 52,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Бактыгулов Аманжол",
+    "subjects": [
+      "абайтану",
+      "қазақ тілі",
+      "қазақ әдебиеті"
+    ],
+    "weekly_load": 80,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Утенова Куралай",
+    "subjects": [
+      "абайтану/",
+      "қазақ тілі",
+      "қазақ әдебиеті"
+    ],
+    "weekly_load": 72,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Жомартова Айым Кайратқызы(куратор)",
+    "subjects": [
+      "абайтану",
+      "қазақ тілі",
+      "қазақ әдебиеті"
+    ],
+    "weekly_load": 72,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Матигулова Гульсара Бактыбергеновна",
+    "subjects": [
+      "орыс тілі мен әдебиеті"
+    ],
+    "weekly_load": 80,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Гореева Альфия Махмудовна(AIS)(до обеда)",
+    "subjects": [
+      "орыс тілі мен әдебиеті"
+    ],
+    "weekly_load": 60,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Жадырасын Ернұр",
+    "subjects": [
+      "география",
+      "қосымша/ұбт"
+    ],
+    "weekly_load": 88,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Караева Аружан",
+    "subjects": [
+      "биология",
+      "қосымша"
+    ],
+    "weekly_load": 72,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Қайырқұлов Нұрсұлтан Амангелдіұлы",
+    "subjects": [
+      "биология",
+      "қосымша"
+    ],
+    "weekly_load": 68,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Шарафадинова Айжан Мырзабекқызы",
+    "subjects": [
+      "биология",
+      "қосымша"
+    ],
+    "weekly_load": 12,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Аділов Тлепберген Бекболұлы",
+    "subjects": [
+      "дене тәрбиесі",
+      "дене шынықтыру: спорттық ойындар"
+    ],
+    "weekly_load": 84,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Қарабай Айбат Нұрлыбайұлы",
+    "subjects": [
+      "дене тәрбиесі",
+      "дене шынықтыру: спорттық ойындар"
+    ],
+    "weekly_load": 48,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Назаров Дастан",
+    "subjects": [
+      "химия",
+      "қосымша",
+      "ұбт"
+    ],
+    "weekly_load": 80,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Аманғазы Сәнім",
+    "subjects": [
+      "химия",
+      "қосымша"
+    ],
+    "weekly_load": 84,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Қойшан Ырысжан Асқарбекқызы",
+    "subjects": [
+      "көркем еңбек"
+    ],
+    "weekly_load": 36,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Қазиев Нұртлеу",
+    "subjects": [
+      "көркем еңбек"
+    ],
+    "weekly_load": 36,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Сарқытбаев Н.",
+    "subjects": [
+      "аәд"
+    ],
+    "weekly_load": 16,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Иван Оралсын",
+    "subjects": [
+      "дүниежүзі тарихы",
+      "қазақстан тарихы",
+      "құқық негіздері",
+      "ұбт құқық"
+    ],
+    "weekly_load": 72,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Ерлан Қуанович",
+    "subjects": [
+      "география",
+      "қосымша/ұбт"
+    ],
+    "weekly_load": 40,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Байдирахманова Б.С",
+    "subjects": [
+      "алгебра",
+      "геометрия",
+      "қосымша"
+    ],
+    "weekly_load": 24,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Жаулбаев А.З.",
+    "subjects": [
+      "профориентация"
+    ],
+    "weekly_load": 12,
+    "status": "active"
+  },
+  {
+    "teacher_name": "Душманова А.Қ.",
+    "subjects": [
+      "психология"
+    ],
+    "weekly_load": 16,
+    "status": "active"
+  }
+]

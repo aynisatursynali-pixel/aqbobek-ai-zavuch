@@ -1,0 +1,17 @@
+[
+  {
+    "day": "Дүйсенбі",
+    "time": "09.05–09.50",
+    "lesson": 2,
+    "class": "7A",
+    "subject": "математика",
+    "room": "211",
+    "absent_teacher": "Аскар заболел",
+    "substitute_teacher": null,
+    "all_candidates": [],
+    "reason": [
+      "подходящий свободный учитель не найден"
+    ],
+    "status": "rejected"
+  }
+]

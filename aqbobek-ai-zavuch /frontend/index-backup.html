@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aqbobek AI Operations Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="premium-ui.css">
+    <link rel="stylesheet" href="ai-operations-styles.css">
+</head>
+<body>
+    <div class="glass-container">
+        <!-- Premium Navigation -->
+        <nav class="premium-nav">
+            <div class="nav-brand">
+                <div class="brand-glass">
+                    <h1 class="brand-title">Aqbobek AI</h1>
+                    <span class="brand-subtitle">Operations Center</span>
+                </div>
+            </div>
+            
+            <div class="nav-menu">
+                <button class="nav-item active" data-page="dashboard">
+                    <span class="nav-icon">dashboard</span>
+                    <span class="nav-label">Centr Upravleniya</span>
+                </button>
+                <button class="nav-item" data-page="monitoring">
+                    <span class="nav-icon">monitoring</span>
+                    <span class="nav-label">Monitoring</span>
+                </button>
+                <button class="nav-item" data-page="tasks">
+                    <span class="nav-icon">tasks</span>
+                    <span class="nav-label">Zadachi</span>
+                </button>
+                <button class="nav-item" data-page="incidents">
+                    <span class="nav-icon">incidents</span>
+                    <span class="nav-label">Incidents</span>
+                </button>
+                <button class="nav-item" data-page="dining">
+                    <span class="nav-icon">dining</span>
+                    <span class="nav-label">Stolovaya</span>
+                </button>
+                <button class="nav-item" data-page="schedule">
+                    <span class="nav-icon">schedule</span>
+                    <span class="nav-label">Raspisanie</span>
+                </button>
+                <button class="nav-item" data-page="collective">
+                    <span class="nav-icon">collective</span>
+                    <span class="nav-label">Kollektiv</span>
+                </button>
+                <button class="nav-item" data-page="general-timetable">
+                    <span class="nav-icon">calendar</span>
+                    <span class="nav-label">Obshiy Grafik</span>
+                </button>
+                <button class="nav-item" data-page="knowledge">
+                    <span class="nav-icon">knowledge</span>
+                    <span class="nav-label">Baza Znaniy</span>
+                </button>
+            </div>
+
+            <div class="nav-status">
+                <div class="status-indicator">
+                    <div class="status-dot online"></div>
+                    <span class="status-text">AI Active</span>
+                </div>
+                <div class="status-time">
+                    <span id="currentTime">--:--</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Dashboard Overview Page -->
+            <section class="page-section active" id="dashboard">
+                <header class="page-header">
+                    <div class="header-content">
+                        <h1 class="page-title">Centr Upravleniya</h1>
+                        <p class="page-subtitle">Komandnyy centr direktora shkoly</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="action-button primary" id="refreshDashboard">
+                            <span class="button-icon">refresh</span>
+                            Obnovit'
+                        </button>
+                        <button class="action-button secondary" id="exportReport">
+                            <span class="button-icon">download</span>
+                            Export
+                        </button>
+                    </div>
+                </header>
+
+                <div class="dashboard-grid">
+                    <!-- Critical Alerts Widget -->
+                    <div class="widget critical-alerts">
+                        <div class="widget-header">
+                            <h3 class="widget-title">Kriticheskie Opoloveniya</h3>
+                            <div class="widget-badge danger" id="criticalCount">0</div>
+                        </div>
+                        <div class="widget-content">
+                            <div class="alert-list" id="criticalAlerts">
+                                <!-- Alerts will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Active Incidents Widget -->
+                    <div class="widget active-incidents">
+                        <div class="widget-header">
+                            <h3 class="widget-title">Aktivnye Incidenty</h3>
+                            <div class="widget-badge warning" id="incidentCount">0</div>
+                        </div>
+                        <div class="widget-content">
+                            <div class="incident-grid" id="incidentGrid">
+                                <!-- Incidents will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tasks in Progress Widget -->
+                    <div class="widget tasks-progress">
+                        <div class="widget-header">
+                            <h3 class="widget-title">Zadachi v Processe</h3>
+                            <div class="widget-badge info" id="taskCount">0</div>
+                        </div>
+                        <div class="widget-content">
+                            <div class="task-list" id="taskList">
+                                <!-- Tasks will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Missing Attendance Widget -->
+                    <div class="widget missing-attendance">
+                        <div class="widget-header">
+                            <h3 class="widget-title">Otsutstvuyut Otchety</h3>
+                            <div class="widget-badge alert" id="missingCount">0</div>
+                        </div>
+                        <div class="widget-content">
+                            <div class="attendance-list" id="missingAttendance">
+                                <!-- Missing attendance will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Staff Workload Widget -->
+                    <div class="widget staff-workload">
+                        <div class="widget-header">
+                            <h3 class="widget-title">Nagruzka Kollektiva</h3>
+                            <div class="widget-badge neutral" id="staffCount">0</div>
+                        </div>
+                        <div class="widget-content">
+                            <div class="workload-grid" id="workloadGrid">
+                                <!-- Staff workload will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Substitution Requests Widget -->
+                    <div class="widget substitution-requests">
+                        <div class="widget-header">
+                            <h3 class="widget-title">Zaprosy na Zameny</h3>
+                            <div class="widget-badge success" id="substitutionCount">0</div>
+                        </div>
+                        <div class="widget-content">
+                            <div class="substitution-list" id="substitutionList">
+                                <!-- Substitutions will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Assistant Widget -->
+                    <div class="widget ai-assistant">
+                        <div class="widget-header">
+                            <h3 class="widget-title">AI Assistant</h3>
+                            <div class="widget-badge ai" id="aiStatus">Ready</div>
+                        </div>
+                        <div class="widget-content">
+                            <div class="ai-interface">
+                                <div class="ai-chat" id="aiChat">
+                                    <div class="chat-message ai">
+                                        <span class="message-text">Dobryy den', direktor! Ya gotov pomoch' s upravleniyem shkoly.</span>
+                                    </div>
+                                </div>
+                                <div class="ai-input">
+                                    <input type="text" class="ai-text-input" id="aiInput" placeholder="Vash zapros...">
+                                    <button class="ai-send-btn" id="aiSend">
+                                        <span class="send-icon">send</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats Widget -->
+                    <div class="widget quick-stats">
+                        <div class="widget-header">
+                            <h3 class="widget-title">Bystraya Statistika</h3>
+                        </div>
+                        <div class="widget-content">
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <div class="stat-value" id="totalStudents">--</div>
+                                    <div class="stat-label">Ucheniki</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value" id="totalStaff">--</div>
+                                    <div class="stat-label">Personal</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value" id="totalClasses">--</div>
+                                    <div class="stat-label">Klassy</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value" id="totalRooms">--</div>
+                                    <div class="stat-label">Kabinety</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Monitoring Page -->
+            <section class="page-section" id="monitoring">
+                <header class="page-header">
+                    <div class="header-content">
+                        <h1 class="page-title">Monitoring</h1>
+                        <p class="page-subtitle">Real-time monitoring of school operations</p>
+                    </div>
+                </header>
+                <div class="monitoring-grid">
+                    <div class="widget monitoring-overview">
+                        <div class="widget-header">
+                            <h3 class="widget-title">System Overview</h3>
+                        </div>
+                        <div class="widget-content">
+                            <div class="system-metrics">
+                                <div class="metric-item">
+                                    <div class="metric-label">System Health</div>
+                                    <div class="metric-value good">98%</div>
+                                </div>
+                                <div class="metric-item">
+                                    <div class="metric-label">Active Users</div>
+                                    <div class="metric-value" id="activeUsers">--</div>
+                                </div>
+                                <div class="metric-item">
+                                    <div class="metric-label">Response Time</div>
+                                    <div class="metric-value good">120ms</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tasks Page -->
+            <section class="page-section" id="tasks">
+                <header class="page-header">
+                    <div class="header-content">
+                        <h1 class="page-title">Zadachi</h1>
+                        <p class="page-subtitle">Management of director tasks and assignments</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="action-button primary" id="createTask">
+                            <span class="button-icon">add</span>
+                            Sozdat' Zadachu
+                        </button>
+                    </div>
+                </header>
+                <div class="tasks-grid">
+                    <div class="widget task-filters">
+                        <div class="widget-header">
+                            <h3 class="widget-title">Fil'try</h3>
+                        </div>
+                        <div class="widget-content">
+                            <div class="filter-controls">
+                                <select class="filter-select" id="taskStatusFilter">
+                                    <option value="all">Vse Statusy</option>
+                                    <option value="new">Novye</option>
+                                    <option value="in_progress">V Processe</option>
+                                    <option value="completed">Zaversheny</option>
+                                </select>
+                                <select class="filter-select" id="taskPriorityFilter">
+                                    <option value="all">Vse Prioritety</option>
+                                    <option value="critical">Kriticheskie</option>
+                                    <option value="high">Vysokie</option>
+                                    <option value="normal">Normal'nye</option>
+                                    <option value="low">Nizkie</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget task-list-detailed">
+                        <div class="widget-header">
+                            <h3 class="widget-title">Spisok Zadach</h3>
+                        </div>
+                        <div class="widget-content">
+                            <div class="detailed-task-list" id="detailedTaskList">
+                                <!-- Tasks will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Incidents Page -->
+            <section class="page-section" id="incidents">
+                <header class="page-header">
+                    <div class="header-content">
+                        <h1 class="page-title">Incidents</h1>
+                        <p class="page-subtitle">Incident tracking and resolution</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="action-button primary" id="reportIncident">
+                            <span class="button-icon">report</span>
+                            Soobshit' ob Incidente
+                        </button>
+                    </div>
+                </header>
+                <div class="incidents-grid">
+                    <div class="widget incident-list-detailed">
+                        <div class="widget-header">
+                            <h3 class="widget-title">Spisok Incidentov</h3>
+                        </div>
+                        <div class="widget-content">
+                            <div class="detailed-incident-list" id="detailedIncidentList">
+                                <!-- Incidents will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dining Page -->
+            <section class="page-section" id="dining">
+                <header class="page-header">
+                    <div class="header-content">
+                        <h1 class="page-title">Stolovaya</h1>
+                        <p class="page-subtitle">Dining hall management and meal tracking</p>
+                    </div>
+                </header>
+                <div class="dining-grid">
+                    <div class="widget dining-summary">
+                        <div class="widget-header">
+                            <h3 class="widget-title">Itogi Pitaniya</h3>
+                        </div>
+                        <div class="widget-content">
+                            <div class="dining-stats">
+                                <div class="dining-stat-item">
+                                    <div class="stat-value" id="totalMeals">--</div>
+                                    <div class="stat-label">Vsego Priemov Pishchi</div>
+                                </div>
+                                <div class="dining-stat-item">
+                                    <div class="stat-value" id="presentMeals">--</div>
+                                    <div class="stat-label">Prisutstvuyut</div>
+                                </div>
+                                <div class="dining-stat-item">
+                                    <div class="stat-value" id="absentMeals">--</div>
+                                    <div class="stat-label">Otsutstvuyut</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Schedule Page -->
+            <section class="page-section" id="schedule">
+                <header class="page-header">
+                    <div class="header-content">
+                        <h1 class="page-title">Raspisanie</h1>
+                        <p class="page-subtitle">Schedule management for classes, teachers, and rooms</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="action-button primary" id="createSchedule">
+                            <span class="button-icon">add</span>
+                            Sozdat' Raspisanie
+                        </button>
+                    </div>
+                </header>
+                <div class="schedule-grid">
+                    <div class="widget schedule-filters">
+                        <div class="widget-header">
+                            <h3 class="widget-title">Fil'try Raspisaniya</h3>
+                        </div>
+                        <div class="widget-content">
+                            <div class="filter-controls">
+                                <select class="filter-select" id="scheduleTypeFilter">
+                                    <option value="class">Po Klassam</option>
+                                    <option value="teacher">Po Uchitelyam</option>
+                                    <option value="room">Po Kabinetam</option>
+                                </select>
+                                <select class="filter-select" id="scheduleDayFilter">
+                                    <option value="all">Vse Dni</option>
+                                    <option value="monday">Ponedel'nik</option>
+                                    <option value="tuesday">Vtornik</option>
+                                    <option value="wednesday">Sreda</option>
+                                    <option value="thursday">Chetverg</option>
+                                    <option value="friday">Pyatnica</option>
+                                </select>
+                                <input type="text" class="filter-input" id="scheduleEntityFilter" placeholder="Klass / Uchitel' / Kab...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget schedule-view">
+                        <div class="widget-header">
+                            <h3 class="widget-title">Prosmotr Raspisaniya</h3>
+                        </div>
+                        <div class="widget-content">
+                            <div class="schedule-table" id="scheduleTable">
+                                <!-- Schedule will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Collective Page -->
+            <section class="page-section" id="collective">
+                <header class="page-header">
+                    <div class="header-content">
+                        <h1 class="page-title">Kollektiv</h1>
+                        <p class="page-subtitle">Staff matrix and workload visualization</p>
+                    </div>
+                </header>
+                <div class="collective-grid">
+                    <div class="widget staff-matrix">
+                        <div class="widget-header">
+                            <h3 class="widget-title">Matritsa Personala</h3>
+                        </div>
+                        <div class="widget-content">
+                            <div class="staff-grid" id="staffGrid">
+                                <!-- Staff matrix will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget workload-analysis">
+                        <div class="widget-header">
+                            <h3 class="widget-title">Analiz Nagruzki</h3>
+                        </div>
+                        <div class="widget-content">
+                            <div class="workload-charts" id="workloadCharts">
+                                <!-- Workload charts will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- General Timetable Page -->
+            <section class="page-section" id="general-timetable">
+                <header class="page-header">
+                    <div class="header-content">
+                        <h1 class="page-title">Obshiy Grafik</h1>
+                        <p class="page-subtitle">Monthly events and general timetable</p>
+                    </div>
+                </header>
+                <div class="timetable-grid">
+                    <div class="widget calendar-view">
+                        <div class="widget-header">
+                            <h3 class="widget-title">Kalendar' Sobytij</h3>
+                        </div>
+                        <div class="widget-content">
+                            <div class="calendar-container" id="calendarContainer">
+                                <!-- Calendar will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Knowledge Base Page -->
+            <section class="page-section" id="knowledge">
+                <header class="page-header">
+                    <div class="header-content">
+                        <h1 class="page-title">Baza Znaniy</h1>
+                        <p class="page-subtitle">AI-powered knowledge base and document assistant</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="action-button primary" id="addDocument">
+                            <span class="button-icon">add</span>
+                            Dobavit' Dokument
+                        </button>
+                    </div>
+                </header>
+                <div class="knowledge-grid">
+                    <div class="widget knowledge-search">
+                        <div class="widget-header">
+                            <h3 class="widget-title">Poisk v Baze Znaniy</h3>
+                        </div>
+                        <div class="widget-content">
+                            <div class="search-interface">
+                                <input type="text" class="search-input" id="knowledgeSearchInput" placeholder="Vvedite vash zapros...">
+                                <button class="search-button" id="knowledgeSearchBtn">
+                                    <span class="search-icon">search</span>
+                                </button>
+                            </div>
+                            <div class="search-results" id="knowledgeSearchResults">
+                                <!-- Search results will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget document-templates">
+                        <div class="widget-header">
+                            <h3 class="widget-title">Shablony Dokumentov</h3>
+                        </div>
+                        <div class="widget-content">
+                            <div class="template-list" id="templateList">
+                                <!-- Templates will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <span class="loading-text">Zagruzka...</span>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="notification-toast" id="notificationToast">
+        <div class="toast-content">
+            <span class="toast-message" id="toastMessage"></span>
+            <button class="toast-close" id="toastClose">×</button>
+        </div>
+    </div>
+
+    <script src="ai-operations-dashboard.js"></script>
+</body>
+</html>

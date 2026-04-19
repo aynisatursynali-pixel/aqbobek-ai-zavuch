@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aqbobek AI Zavuch - Панель управления школой</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="ai-dashboard.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Premium Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="brand-container">
+                    <div class="brand-logo">
+                        <div class="logo-icon">A</div>
+                    </div>
+                    <div class="brand-text">
+                        <h1 class="brand-title">Aqbobek AI</h1>
+                        <span class="brand-subtitle">панель управления</span>
+                    </div>
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                </button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item active" data-page="dashboard">
+                        <a href="#" class="nav-link">
+                            <span class="nav-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                    <path d="M3 9h18M9 21V9"/>
+                                </svg>
+                            </span>
+                            <span class="nav-text">Дашборд</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-page="attendance">
+                        <a href="#" class="nav-link">
+                            <span class="nav-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
+                            </span>
+                            <span class="nav-text">Посещаемость</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-page="incidents">
+                        <a href="#" class="nav-link">
+                            <span class="nav-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                    <line x1="12" y1="9" x2="12" y2="13"/>
+                                    <line x1="12" y1="17" x2="12.01" y2="17"/>
+                                </svg>
+                            </span>
+                            <span class="nav-text">Инциденты</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-page="schedule">
+                        <a href="#" class="nav-link">
+                            <span class="nav-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                    <line x1="16" y1="2" x2="16" y2="6"/>
+                                    <line x1="8" y1="2" x2="8" y2="6"/>
+                                    <line x1="3" y1="10" x2="21" y2="10"/>
+                                </svg>
+                            </span>
+                            <span class="nav-text">Расписание</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-page="staff">
+                        <a href="#" class="nav-link">
+                            <span class="nav-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
+                            </span>
+                            <span class="nav-text">Персонал</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-page="knowledge">
+                        <a href="#" class="nav-link">
+                            <span class="nav-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                                </svg>
+                            </span>
+                            <span class="nav-text">База знаний</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="ai-analytics-btn" id="aiAnalyticsBtn">
+                    <span class="ai-icon">🤖</span>
+                    <span class="ai-text">AI Аналитика</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                        <span class="menu-line"></span>
+                        <span class="menu-line"></span>
+                        <span class="menu-line"></span>
+                    </button>
+                    <div class="page-info">
+                        <h1 class="page-title" id="pageTitle">Панель управления директора</h1>
+                        <div class="page-meta">
+                            <span class="current-date" id="currentDate"></span>
+                            <span class="current-time" id="currentTime"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <div class="header-actions">
+                        <button class="header-btn" id="notificationBtn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                                <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                            </svg>
+                            <span class="notification-badge" id="notificationBadge">3</span>
+                        </button>
+                        <button class="header-btn" id="searchBtn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"/>
+                                <path d="m21 21-4.35-4.35"/>
+                            </svg>
+                        </button>
+                        <div class="user-profile">
+                            <div class="user-avatar">
+                                <span class="avatar-text">Д</span>
+                            </div>
+                            <div class="user-info">
+                                <div class="user-name">Директор</div>
+                                <div class="user-role">Администратор</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content" id="pageContent">
+                <!-- Dashboard Page -->
+                <div class="page" id="dashboardPage">
+                    <!-- Executive Overview Cards -->
+                    <div class="executive-overview">
+                        <div class="stat-card primary">
+                            <div class="stat-header">
+                                <div class="stat-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                        <circle cx="9" cy="7" r="4"/>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                    </svg>
+                                </div>
+                                <div class="stat-trend positive">
+                                    <span class="trend-icon">↑</span>
+                                    <span class="trend-value">12%</span>
+                                </div>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value" id="studentsInSchool">1,247</div>
+                                <div class="stat-label">Учеников в школе</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card success">
+                            <div class="stat-header">
+                                <div class="stat-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                        <circle cx="8.5" cy="7" r="4"/>
+                                        <path d="M20 8.54V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v4.54"/>
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-.82-.65v-3.35a2 2 0 0 1 .18-.65 2 2 0 0 1 2.18 2z"/>
+                                    </svg>
+                                </div>
+                                <div class="stat-trend neutral">
+                                    <span class="trend-icon">→</span>
+                                    <span class="trend-value">0%</span>
+                                </div>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value" id="totalStaff">89</div>
+                                <div class="stat-label">Всего персонала</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card warning">
+                            <div class="stat-header">
+                                <div class="stat-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                        <line x1="12" y1="9" x2="12" y2="13"/>
+                                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                                    </svg>
+                                </div>
+                                <div class="stat-trend negative">
+                                    <span class="trend-icon">↑</span>
+                                    <span class="trend-value">2</span>
+                                </div>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value" id="activeIncidents">5</div>
+                                <div class="stat-label">Активных инцидентов</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card info">
+                            <div class="stat-header">
+                                <div class="stat-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M9 11l3 3L22 4"/>
+                                        <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+                                    </svg>
+                                </div>
+                                <div class="stat-trend positive">
+                                    <span class="trend-icon">↑</span>
+                                    <span class="trend-value">8</span>
+                                </div>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value" id="urgentTasks">23</div>
+                                <div class="stat-label">Срочных задач</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Notifications Section -->
+                    <div class="ai-notifications">
+                        <div class="section-header">
+                            <h2 class="section-title">
+                                <span class="ai-indicator">🤖</span>
+                                Срочные уведомления AI
+                            </h2>
+                            <button class="refresh-btn" id="refreshNotifications">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M23 4v6h-6"/>
+                                    <path d="M1 20v-6h6"/>
+                                    <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="notifications-grid" id="aiNotificationsGrid">
+                            <!-- AI notifications will be populated here -->
+                        </div>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <!-- AI Recommendations -->
+                        <div class="dashboard-card ai-recommendations">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <span class="ai-badge">AI</span>
+                                    Рекомендация
+                                </h3>
+                                <button class="card-action">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="1"/>
+                                        <circle cx="19" cy="12" r="1"/>
+                                        <circle cx="5" cy="12" r="1"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="card-content">
+                                <div class="school-index">
+                                    <div class="index-value">87</div>
+                                    <div class="index-label">Индекс состояния школы</div>
+                                </div>
+                                <div class="ai-summary">
+                                    <p class="summary-text">Система работает в штатном режиме. Обнаружены 2 потенциальных конфликта в расписании. Рекомендуется провести аудит кабинета 12.</p>
+                                </div>
+                                <div class="status-markers">
+                                    <div class="marker success">
+                                        <span class="marker-icon">✓</span>
+                                        <span class="marker-text">Дисциплина в норме</span>
+                                    </div>
+                                    <div class="marker success">
+                                        <span class="marker-icon">✓</span>
+                                        <span class="marker-text">Ресурсы оптимизированы</span>
+                                    </div>
+                                    <div class="marker warning">
+                                        <span class="marker-icon">⚠</span>
+                                        <span class="marker-text">Требуется аудит кабинета</span>
+                                    </div>
+                                </div>
+                                <button class="generate-report-btn">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                        <polyline points="14,2 14,8 20,8"/>
+                                        <line x1="16" y1="13" x2="8" y2="13"/>
+                                        <line x1="16" y1="17" x2="8" y2="17"/>
+                                        <polyline points="10,9 9,9 8,9"/>
+                                    </svg>
+                                    Сформировать полный отчёт
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Attendance Summary -->
+                        <div class="dashboard-card attendance-summary">
+                            <div class="card-header">
+                                <h3 class="card-title">Отсутствующие сегодня</h3>
+                                <span class="card-badge warning">12</span>
+                            </div>
+                            <div class="card-content">
+                                <div class="absence-list" id="absenceList">
+                                    <!-- Absence data will be populated here -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Upcoming Events -->
+                        <div class="dashboard-card upcoming-events">
+                            <div class="card-header">
+                                <h3 class="card-title">Предстоящие события</h3>
+                                <button class="card-action">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                        <line x1="16" y1="2" x2="16" y2="6"/>
+                                        <line x1="8" y1="2" x2="8" y2="6"/>
+                                        <line x1="3" y1="10" x2="21" y2="10"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="card-content">
+                                <div class="events-list" id="eventsList">
+                                    <!-- Events will be populated here -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Canteen Statistics -->
+                        <div class="dashboard-card canteen-stats">
+                            <div class="card-header">
+                                <h3 class="card-title">Статистика столовой</h3>
+                                <span class="card-badge success">Активно</span>
+                            </div>
+                            <div class="card-content">
+                                <div class="canteen-metrics">
+                                    <div class="metric">
+                                        <div class="metric-value">342</div>
+                                        <div class="metric-label">Питаний сегодня</div>
+                                    </div>
+                                    <div class="metric">
+                                        <div class="metric-value">89%</div>
+                                        <div class="metric-label">Удовлетворенность</div>
+                                    </div>
+                                    <div class="metric">
+                                        <div class="metric-value">12</div>
+                                        <div class="metric-label">Меню на неделю</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other Pages (Hidden by default) -->
+                <div class="page hidden" id="attendancePage">
+                    <div class="page-header">
+                        <h1 class="page-title">Посещаемость</h1>
+                        <div class="page-controls">
+                            <div class="segment-control">
+                                <button class="segment-btn active" data-segment="all">Все</button>
+                                <button class="segment-btn" data-segment="primary">Начальная школа</button>
+                                <button class="segment-btn" data-segment="secondary">Старшая школа</button>
+                            </div>
+                            <div class="control-buttons">
+                                <button class="control-btn" id="attendanceFilters">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polygon points="22 3 2 3 10 12.46 10 19 14 12 22 3"/>
+                                    </svg>
+                                    Фильтры
+                                </button>
+                                <button class="control-btn" id="attendanceExport">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                        <polyline points="7,10 12,15 17,10"/>
+                                    </svg>
+                                    Экспорт
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="attendance-content">
+                        <div class="attendance-grid" id="attendanceGrid">
+                            <!-- Attendance data will be populated here -->
+                        </div>
+                        <div class="attendance-sidebar">
+                            <div class="ai-prediction">
+                                <h3 class="sidebar-title">AI Прогноз</h3>
+                                <div class="prediction-content">
+                                    <div class="prediction-metric">
+                                        <span class="prediction-label">Ожидаемая посещаемость:</span>
+                                        <span class="prediction-value success">94%</span>
+                                    </div>
+                                    <div class="prediction-alert">
+                                        <span class="alert-icon">⚠</span>
+                                        <span class="alert-text">Риск отсутствия в 7Б классе</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="critical-incidents">
+                                <h3 class="sidebar-title">Критические инциденты</h3>
+                                <div class="incidents-list" id="criticalIncidents">
+                                    <!-- Critical incidents will be populated here -->
+                                </div>
+                            </div>
+                            <button class="create-record-btn">Создать запись</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page hidden" id="incidentsPage">
+                    <div class="page-header">
+                        <h1 class="page-title">Инциденты</h1>
+                    </div>
+                    <div class="incidents-content">
+                        <div class="incidents-grid" id="incidentsGrid">
+                            <!-- Incidents will be populated here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page hidden" id="schedulePage">
+                    <div class="page-header">
+                        <h1 class="page-title">Умное расписание</h1>
+                        <div class="schedule-controls">
+                            <div class="date-picker">
+                                <input type="date" id="scheduleDate" class="date-input">
+                            </div>
+                            <div class="view-modes">
+                                <button class="view-mode-btn active" data-mode="rooms">Кабинеты</button>
+                                <button class="view-mode-btn" data-mode="classes">Классы</button>
+                                <button class="view-mode-btn" data-mode="teachers">Учителя</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="schedule-content">
+                        <div class="schedule-main">
+                            <!-- Substitutions Section -->
+                            <div class="substitutions-section">
+                                <h2 class="section-title">Замены учителей</h2>
+                                <div class="substitutions-grid" id="substitutionsGrid">
+                                    <!-- Substitutions will be populated here -->
+                                </div>
+                            </div>
+
+                            <!-- Room Occupancy Matrix -->
+                            <div class="room-matrix-section">
+                                <h2 class="section-title">Занятость кабинетов</h2>
+                                <div class="room-matrix" id="roomMatrix">
+                                    <!-- Room matrix will be populated here -->
+                                </div>
+                            </div>
+
+                            <!-- Schedule Statistics -->
+                            <div class="schedule-stats">
+                                <h3 class="section-title">Статистика дня</h3>
+                                <div class="stats-grid">
+                                    <div class="stat-item">
+                                        <div class="stat-label">Занятость кабинетов:</div>
+                                        <div class="stat-value">78%</div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-label">Нагрузка учителей:</div>
+                                        <div class="stat-value">85%</div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-label">Конфликты:</div>
+                                        <div class="stat-value warning">3</div>
+                                    </div>
+                                </div>
+                                <button class="export-pdf-btn">Экспорт в PDF</button>
+                            </div>
+                        </div>
+
+                        <!-- Action Cards -->
+                        <div class="action-cards">
+                            <button class="action-card">
+                                <div class="action-icon">➕</div>
+                                <div class="action-title">Новое занятие</div>
+                            </button>
+                            <button class="action-card">
+                                <div class="action-icon">🧠</div>
+                                <div class="action-title">Умная оптимизация</div>
+                            </button>
+                            <button class="action-card">
+                                <div class="action-icon">🔄</div>
+                                <div class="action-title">Замены кабинетов</div>
+                            </button>
+                            <button class="action-card">
+                                <div class="action-icon">🚨</div>
+                                <div class="action-title">Экстренный режим</div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page hidden" id="staffPage">
+                    <div class="page-header">
+                        <h1 class="page-title">Персонал и Коллектив</h1>
+                        <div class="staff-controls">
+                            <div class="search-bar">
+                                <input type="text" placeholder="Поиск сотрудника..." class="search-input" id="staffSearch">
+                                <button class="search-btn">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="11" cy="11" r="8"/>
+                                        <path d="m21 21-4.35-4.35"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="filter-tabs">
+                                <button class="filter-tab active" data-filter="all">Все</button>
+                                <button class="filter-tab" data-filter="admin">Администрация</button>
+                                <button class="filter-tab" data-filter="teachers">Учителя</button>
+                                <button class="filter-tab" data-filter="technical">Техперсонал</button>
+                                <button class="filter-tab" data-filter="security">Охрана</button>
+                            </div>
+                            <button class="add-staff-btn">Добавить сотрудника</button>
+                        </div>
+                    </div>
+                    <div class="staff-content">
+                        <!-- Featured Staff Cards -->
+                        <div class="featured-staff" id="featuredStaff">
+                            <!-- Featured staff will be populated here -->
+                        </div>
+
+                        <!-- AI Analysis -->
+                        <div class="ai-analysis">
+                            <h2 class="section-title">AI Анализ штата</h2>
+                            <div class="analysis-content">
+                                <div class="analysis-text">
+                                    <p>Нагрузка административного персонала находится в пределах нормы. Рекомендуется оптимизировать расписание технического персонала для повышения эффективности на 15%.</p>
+                                </div>
+                                <div class="analysis-recommendation">
+                                    <span class="recommendation-label">Рекомендация:</span>
+                                    <span class="recommendation-text">Пересмотреть график работы лаборантов</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Technical Staff Table -->
+                        <div class="technical-staff-section">
+                            <h2 class="section-title">Технический и обслуживающий персонал</h2>
+                            <div class="staff-table-container">
+                                <table class="staff-table" id="technicalStaffTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Сотрудник</th>
+                                            <th>Должность</th>
+                                            <th>Статус</th>
+                                            <th>Последняя активность</th>
+                                            <th>Действия</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="technicalStaffBody">
+                                        <!-- Technical staff will be populated here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Staff Statistics -->
+                        <div class="staff-statistics">
+                            <h2 class="section-title">Статистика коллектива</h2>
+                            <div class="stats-overview">
+                                <div class="stat-overview-item">
+                                    <div class="stat-number">89</div>
+                                    <div class="stat-label">Общее число</div>
+                                </div>
+                                <div class="stat-overview-item">
+                                    <div class="stat-number">94%</div>
+                                    <div class="stat-label">Процент присутствия</div>
+                                </div>
+                                <div class="stat-overview-item">
+                                    <div class="stat-number">3</div>
+                                    <div class="stat-label">Ближайшие события</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page hidden" id="knowledgePage">
+                    <div class="page-header">
+                        <h1 class="page-title">База знаний</h1>
+                    </div>
+                    <div class="knowledge-content">
+                        <div class="knowledge-interface">
+                            <div class="query-section">
+                                <h2 class="section-title">Задайте вопрос AI ассистенту</h2>
+                                <div class="query-form">
+                                    <textarea placeholder="Введите ваш вопрос о приказах, формах или документах..." class="query-input" id="knowledgeQuery"></textarea>
+                                    <div class="query-actions">
+                                        <button class="query-btn primary" id="submitQuery">Отправить запрос</button>
+                                        <button class="query-btn secondary" id="clearQuery">Очистить</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="templates-section">
+                                <h2 class="section-title">Шаблоны документов</h2>
+                                <div class="templates-grid">
+                                    <div class="template-card">
+                                        <div class="template-icon">📄</div>
+                                        <div class="template-title">Приказ</div>
+                                        <button class="template-btn">Создать</button>
+                                    </div>
+                                    <div class="template-card">
+                                        <div class="template-icon">📊</div>
+                                        <div class="template-title">Отчёт</div>
+                                        <button class="template-btn">Создать</button>
+                                    </div>
+                                    <div class="template-card">
+                                        <div class="template-icon">📝</div>
+                                        <div class="template-title">Служебная записка</div>
+                                        <button class="template-btn">Создать</button>
+                                    </div>
+                                    <div class="template-card">
+                                        <div class="template-icon">✅</div>
+                                        <div class="template-title">Проверка соответствия</div>
+                                        <button class="template-btn">Проверить</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="history-section">
+                                <h2 class="section-title">История запросов</h2>
+                                <div class="history-list" id="queryHistory">
+                                    <!-- Query history will be populated here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Notification Panel -->
+    <div class="notification-panel" id="notificationPanel">
+        <div class="panel-header">
+            <h3 class="panel-title">Уведомления</h3>
+            <button class="panel-close" id="closeNotifications">×</button>
+        </div>
+        <div class="panel-content">
+            <div class="notification-list" id="notificationList">
+                <!-- Notifications will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-container">
+            <div class="search-input-wrapper">
+                <input type="text" placeholder="Поиск по системе..." class="search-input" id="globalSearch">
+                <button class="search-close" id="closeSearch">×</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <!-- Search results will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="ai-dashboard.js"></script>
+</body>
+</html>

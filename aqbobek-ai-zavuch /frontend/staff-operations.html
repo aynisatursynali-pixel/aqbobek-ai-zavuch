@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Kollektiv - Aqbobek AI Operations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="premium-ui.css">
+    <link rel="stylesheet" href="staff-operations-styles.css">
+</head>
+<body>
+    <div class="staff-container">
+        <!-- Premium Header -->
+        <header class="staff-header">
+            <div class="header-brand">
+                <div class="brand-glass">
+                    <h1 class="brand-title"> Kollektiv</h1>
+                    <span class="brand-subtitle">Complete School Staff Operations</span>
+                </div>
+            </div>
+            
+            <div class="header-filters">
+                <div class="filter-group">
+                    <label class="filter-label">Staff Category</label>
+                    <select class="filter-select premium" id="categoryFilter">
+                        <option value="all">All Staff</option>
+                        <option value="teaching">Teaching Staff</option>
+                        <option value="administration">Administration</option>
+                        <option value="service">Service Staff</option>
+                        <option value="support">Support Staff</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label">Status</label>
+                    <select class="filter-select premium" id="statusFilter">
+                        <option value="all">All Status</option>
+                        <option value="free">Free</option>
+                        <option value="busy">Busy</option>
+                        <option value="overloaded">Overloaded</option>
+                        <option value="substitution">On Substitution</option>
+                        <option value="incident">Incident Response</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label">Department</label>
+                    <input type="text" class="filter-input premium" id="departmentFilter" placeholder="Search department...">
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label">Time Slot</label>
+                    <select class="filter-select premium" id="timeSlotFilter">
+                        <option value="current">Current Time</option>
+                        <option value="all">All Day</option>
+                        <option value="1">Lesson 1</option>
+                        <option value="2">Lesson 2</option>
+                        <option value="3">Lesson 3</option>
+                        <option value="4">Lesson 4</option>
+                        <option value="5">Lesson 5</option>
+                        <option value="6">Lesson 6</option>
+                        <option value="7">Lesson 7</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label">Show Workload</label>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="workloadToggle" checked>
+                        <span class="toggle-slider"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <button class="action-button primary" id="refreshStaff">
+                    <span class="button-icon">refresh</span>
+                    Refresh
+                </button>
+                <button class="action-button secondary" id="exportStaff">
+                    <span class="button-icon">download</span>
+                    Export
+                </button>
+                <button class="action-button accent" id="addStaff">
+                    <span class="button-icon">add</span>
+                    Add Staff
+                </button>
+            </div>
+        </header>
+
+        <!-- Staff Overview Stats -->
+        <section class="staff-overview">
+            <div class="overview-grid">
+                <div class="stat-card total">
+                    <div class="stat-icon">people</div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="totalStaff">--</div>
+                        <div class="stat-label">Total Staff</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card teaching">
+                    <div class="stat-icon">teaching</div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="teachingStaff">--</div>
+                        <div class="stat-label">Teaching Staff</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card administration">
+                    <div class="stat-icon">admin</div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="administrationStaff">--</div>
+                        <div class="stat-label">Administration</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card service">
+                    <div class="stat-icon">service</div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="serviceStaff">--</div>
+                        <div class="stat-label">Service Staff</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card free">
+                    <div class="stat-icon">free</div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="freeStaff">--</div>
+                        <div class="stat-label">Free Now</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card busy">
+                    <div class="stat-icon">busy</div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="busyStaff">--</div>
+                        <div class="stat-label">Busy</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card overloaded">
+                    <div class="stat-icon">overload</div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="overloadedStaff">--</div>
+                        <div class="stat-label">Overloaded</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card substitution">
+                    <div class="stat-icon">substitution</div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="substitutionStaff">--</div>
+                        <div class="stat-label">On Substitution</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Staff Content -->
+        <main class="staff-main">
+            <!-- Staff Grid -->
+            <section class="staff-grid-section">
+                <div class="grid-header">
+                    <h2 class="grid-title">Staff Directory</h2>
+                    <div class="grid-controls">
+                        <button class="grid-view-btn active" data-view="cards">
+                            <span class="view-icon">cards</span>
+                            Cards
+                        </button>
+                        <button class="grid-view-btn" data-view="table">
+                            <span class="view-icon">table</span>
+                            Table
+                        </button>
+                        <button class="grid-view-btn" data-view="matrix">
+                            <span class="view-icon">matrix</span>
+                            Matrix
+                        </button>
+                    </div>
+                </div>
+
+                <div class="staff-grid-container" id="staffGrid">
+                    <!-- Staff grid will be populated here -->
+                </div>
+            </section>
+
+            <!-- Teaching Staff Section -->
+            <section class="staff-category-section" id="teachingSection">
+                <div class="category-header">
+                    <h2 class="category-title">Teaching Staff</h2>
+                    <div class="category-stats">
+                        <span class="category-count" id="teachingCount">0</span>
+                        <span class="category-label">teachers</span>
+                    </div>
+                </div>
+
+                <div class="category-grid" id="teachingGrid">
+                    <!-- Teaching staff will be populated here -->
+                </div>
+            </section>
+
+            <!-- Administration Section -->
+            <section class="staff-category-section" id="administrationSection">
+                <div class="category-header">
+                    <h2 class="category-title">Administration</h2>
+                    <div class="category-stats">
+                        <span class="category-count" id="administrationCount">0</span>
+                        <span class="category-label">administrators</span>
+                    </div>
+                </div>
+
+                <div class="category-grid" id="administrationGrid">
+                    <!-- Administration staff will be populated here -->
+                </div>
+            </section>
+
+            <!-- Service Staff Section -->
+            <section class="staff-category-section" id="serviceSection">
+                <div class="category-header">
+                    <h2 class="category-title">Service Staff</h2>
+                    <div class="category-stats">
+                        <span class="category-count" id="serviceCount">0</span>
+                        <span class="category-label">service workers</span>
+                    </div>
+                </div>
+
+                <div class="category-grid" id="serviceGrid">
+                    <!-- Service staff will be populated here -->
+                </div>
+            </section>
+
+            <!-- Support Staff Section -->
+            <section class="staff-category-section" id="supportSection">
+                <div class="category-header">
+                    <h2 class="category-title">Support Staff</h2>
+                    <div class="category-stats">
+                        <span class="category-count" id="supportCount">0</span>
+                        <span class="category-label">support specialists</span>
+                    </div>
+                </div>
+
+                <div class="category-grid" id="supportGrid">
+                    <!-- Support staff will be populated here -->
+                </div>
+            </section>
+
+            <!-- Availability Finder -->
+            <section class="availability-finder">
+                <div class="finder-header">
+                    <h2 class="finder-title">Who is Available Now?</h2>
+                    <div class="finder-controls">
+                        <select class="finder-select" id="availabilityCategory">
+                            <option value="all">All Categories</option>
+                            <option value="teaching">Teaching Staff</option>
+                            <option value="administration">Administration</option>
+                            <option value="service">Service Staff</option>
+                            <option value="support">Support Staff</option>
+                        </select>
+                        <select class="finder-select" id="availabilityTime">
+                            <option value="current">Current Time</option>
+                            <option value="next">Next Lesson</option>
+                            <option value="today">Today</option>
+                        </select>
+                        <button class="finder-btn primary" id="findAvailable">
+                            Find Available
+                        </button>
+                    </div>
+                </div>
+
+                <div class="availability-results" id="availabilityResults">
+                    <!-- Available staff will be populated here -->
+                </div>
+            </section>
+
+            <!-- Workload Analysis -->
+            <section class="workload-analysis">
+                <div class="analysis-header">
+                    <h2 class="analysis-title">Workload Analysis</h2>
+                    <div class="analysis-controls">
+                        <select class="analysis-select" id="workloadPeriod">
+                            <option value="today">Today</option>
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                        </select>
+                        <select class="analysis-select" id="workloadCategory">
+                            <option value="all">All Categories</option>
+                            <option value="teaching">Teaching Staff</option>
+                            <option value="administration">Administration</option>
+                            <option value="service">Service Staff</option>
+                            <option value="support">Support Staff</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="workload-grid" id="workloadGrid">
+                    <!-- Workload analysis will be populated here -->
+                </div>
+            </section>
+
+            <!-- Schedule Lookup -->
+            <section class="schedule-lookup">
+                <div class="lookup-header">
+                    <h2 class="lookup-title">Schedule Lookup</h2>
+                    <div class="lookup-controls">
+                        <select class="lookup-select" id="lookupEmployee">
+                            <option value="">Select Employee</option>
+                        </select>
+                        <select class="lookup-select" id="lookupDay">
+                            <option value="today">Today</option>
+                            <option value="monday">Monday</option>
+                            <option value="tuesday">Tuesday</option>
+                            <option value="wednesday">Wednesday</option>
+                            <option value="thursday">Thursday</option>
+                            <option value="friday">Friday</option>
+                        </select>
+                        <button class="lookup-btn primary" id="lookupSchedule">
+                            Lookup Schedule
+                        </button>
+                    </div>
+                </div>
+
+                <div class="lookup-results" id="lookupResults">
+                    <!-- Schedule lookup results will be populated here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <span class="loading-text">Loading Staff Data...</span>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="notification-toast" id="notificationToast">
+        <div class="toast-content">
+            <span class="toast-message" id="toastMessage"></span>
+            <button class="toast-close" id="toastClose">×</button>
+        </div>
+    </div>
+
+    <!-- Staff Details Modal -->
+    <div class="modal-overlay" id="staffModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Staff Details</h3>
+                <button class="modal-close" id="modalClose">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="staff-details" id="staffDetails">
+                    <!-- Staff details will be populated here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn secondary" id="modalCancel">Close</button>
+                <button class="modal-btn primary" id="modalEdit">Edit</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="staff-operations.js"></script>
+</body>
+</html>
